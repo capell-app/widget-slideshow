@@ -33,25 +33,47 @@ Evidence: [`src/Providers/WidgetSlideshowServiceProvider.php`](src/Providers/Wid
 
 Screenshot contract: `docs/screenshots.json`.
 
-Capture status: the Marketplace card is committed artwork; the required public-output capture is a deterministic fixture target and remains pending until the screenshot runner records an authentic installed-package result. Do not treat the existing illustrative image as release evidence.
-
 ![Slideshow Widget extension card](docs/screenshots/extension-card.svg)
 
-![Slideshow fields in Layout Builder](docs/screenshots/slideshow-layout-builder-editor.png)
+![Illustrative slideshow public output preview](docs/screenshots/slideshow-public-output.png)
 
-- Slideshow Widget extension card (marketplace, required).
-- Slideshow fields in Layout Builder (admin, optional).
-- Slideshow public output (frontend, required capture; pending runner receipt).
+- Slideshow Widget extension card (marketplace, required evidence).
+- Slideshow fields in Layout Builder (admin, supplementary evidence).
+- Illustrative slideshow public output preview (frontend, required evidence).
+- Slideshow fields in Layout Builder with admin sidebar menu open (admin, supplementary evidence).
 
 ## Technical Shape
 
-- Service providers: `Capell\WidgetSlideshow\Providers\WidgetSlideshowServiceProvider`.
-- Filament classes: `SlideshowWidget`.
-- Data objects: `SlideshowInputData`, `SlideshowRenderData`, `SlideshowSlideData`.
-- Manifest contributions: `content-widget: Capell\WidgetSlideshow\WidgetSlideshowContribution`.
-- Health checks: `Capell\WidgetSlideshow\Health\WidgetSlideshowHealthCheck`.
-- Blade views: `packages/widget-slideshow/resources/views/widget.blade.php`.
-- Cache tags: `widget-slideshow`.
+### Service providers
+
+- `Capell\WidgetSlideshow\Providers\WidgetSlideshowServiceProvider`
+
+### Filament classes
+
+- `SlideshowWidget`
+
+### Data objects
+
+- `SlideshowInputData`
+- `SlideshowRenderData`
+- `SlideshowSlideData`
+
+### Manifest contributions
+
+- `content-widget: Capell\WidgetSlideshow\WidgetSlideshowContribution`
+
+### Health checks
+
+- `Capell\WidgetSlideshow\Health\WidgetSlideshowHealthCheck`
+
+### Blade views
+
+- `packages/widget-slideshow/resources/views/widget.blade.php`
+
+### Cache tags
+
+- `widget-slideshow`
+
 
 ## Data Model
 
@@ -62,7 +84,7 @@ This package has no schema impact. It extends Capell through `content-widget` co
 - Required packages: `capell-app/admin`, `capell-app/core`, `capell-app/frontend`, `capell-app/layout-builder`.
 - Admin navigation: no admin page or resource contribution is declared.
 - Admin/editor extensions: `content-widget: WidgetSlideshowContribution`.
-- Permissions: none declared in `capell.json`.
+- Permissions: no package permission declarations or Shield gates detected; host access rules still apply.
 - Public routes: none declared.
 - Database changes: no package migrations declared.
 - Config: no package config files.
@@ -87,8 +109,7 @@ This package has no schema impact. It extends Capell through `content-widget` co
 ## Quick Start
 
 1. Install the package: `composer require capell-app/widget-slideshow`.
-2. No package-specific setup command or migrations are declared.
-3. Open the package detail or install-intent surface and confirm the Slideshow Widget extension card is present.
+2. Open `/screenshot-fixtures/catalogue/widget-slideshow/slideshow-public-output` and confirm the public output renders without admin state.
 
 ## Next Steps
 
