@@ -8,10 +8,11 @@ use Capell\WidgetSlideshow\Data\SlideshowInputData;
 use Capell\WidgetSlideshow\Data\SlideshowRenderData;
 use Capell\WidgetSlideshow\Health\WidgetSlideshowHealthCheck;
 use Capell\WidgetSlideshow\Providers\WidgetSlideshowServiceProvider;
+use Illuminate\Validation\ValidationException;
 use Spatie\LaravelData\DataCollection;
 
 beforeEach(function (): void {
-    app()->register(WidgetSlideshowServiceProvider::class);
+    $this->app->register(WidgetSlideshowServiceProvider::class);
 });
 
 it('registers its typed definition fallback view resources and filament block', function (): void {
@@ -52,10 +53,10 @@ it('rejects remote slide media and unsafe call to action schemes', function (): 
     expect(fn () => SlideshowInputData::validateAndCreate([
         'label' => 'Unsafe',
         'slides' => [['image' => 'https://remote.test/image.jpg', 'alt' => 'Remote']],
-    ]))->toThrow(Throwable::class);
+    ]))->toThrow(ValidationException::class);
 
     expect(fn () => SlideshowInputData::validateAndCreate([
         'label' => 'Unsafe',
         'slides' => [['image' => 'slides/local.jpg', 'alt' => 'Local', 'ctaUrl' => 'javascript:alert(1)']],
-    ]))->toThrow(Throwable::class);
+    ]))->toThrow(ValidationException::class);
 });
