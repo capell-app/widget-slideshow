@@ -11,8 +11,28 @@
         "capell-app/layout-builder": "^4.1 || 4.x-dev",
         "spatie/laravel-package-tools": "^1.0"
     },
-    "autoload": {"psr-4": {"Capell\\WidgetSlideshow\\": "src/"}},
-    "extra": {"laravel": {"providers": ["Capell\\WidgetSlideshow\\Providers\\WidgetSlideshowServiceProvider"]}, "branch-alias": {"dev-main": "4.x-dev"}},
-    "config": {"sort-packages": true},
+    "autoload": {
+        "psr-4": {
+            "Capell\\WidgetSlideshow\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Capell\\WidgetSlideshow\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Capell\\WidgetSlideshow\\Providers\\WidgetSlideshowServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "4.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
     "prefer-stable": true
 }
