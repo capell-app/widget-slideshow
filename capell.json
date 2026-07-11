@@ -1,0 +1,151 @@
+{
+    "manifest-version": 3,
+    "name": "capell-app/widget-slideshow",
+    "slug": "widget-slideshow",
+    "displayName": "Slideshow Widget",
+    "kind": "package",
+    "capellApiVersion": "^1.0",
+    "version": "1.x-dev",
+    "description": "Accessible responsive image slides with local media, captions, calls to action, and motion controls.",
+    "product": {
+        "group": "Capell Foundation",
+        "tier": "free",
+        "bundle": "foundation"
+    },
+    "namespace": "Capell\\WidgetSlideshow",
+    "surfaces": ["admin", "frontend"],
+    "dependencies": {
+        "requires": [
+            "capell-app/admin",
+            "capell-app/core",
+            "capell-app/frontend",
+            "capell-app/layout-builder"
+        ],
+        "supports": [],
+        "conflicts": []
+    },
+    "providers": {
+        "metadata": [],
+        "install": [],
+        "runtime": [
+            "Capell\\WidgetSlideshow\\Providers\\WidgetSlideshowServiceProvider"
+        ],
+        "admin": [],
+        "frontend": []
+    },
+    "contributes": [
+        {
+            "type": "content-widget",
+            "key": "capell-app.slideshow",
+            "class": "Capell\\WidgetSlideshow\\WidgetSlideshowContribution"
+        }
+    ],
+    "database": {
+        "migrations": false,
+        "settings": false,
+        "requiredTables": []
+    },
+    "commands": {
+        "install": null,
+        "setup": null,
+        "setupParams": [],
+        "demo": null,
+        "doctor": null
+    },
+    "settings": [],
+    "permissions": [],
+    "capabilities": ["frontend.public-static"],
+    "security": {
+        "riskTier": "low",
+        "publicSurface": {
+            "routeNames": [],
+            "auth": "none",
+            "csrfExemptRoutes": [],
+            "signedRoutes": [],
+            "tokenizedRoutes": [],
+            "webhookRoutes": [],
+            "throttledRoutes": []
+        },
+        "sensitiveData": {
+            "encryptedFields": [],
+            "hashedTokenFields": [],
+            "redactedOutputClasses": [],
+            "plaintextJustifications": []
+        },
+        "publicOutput": {
+            "cacheSafe": true,
+            "forbidAuthoringSurface": true,
+            "forbidSecrets": true,
+            "forbidPublicBladeQueries": true
+        },
+        "externalHttpClients": {
+            "requiresTimeouts": false,
+            "requiresSecretRedaction": false,
+            "clients": []
+        },
+        "adminSurface": { "authorization": "panel-auth", "permissions": [] }
+    },
+    "performance": {
+        "frontendRenderBudgetMs": 10,
+        "adminQueryBudget": 0,
+        "cacheTags": ["widget-slideshow"],
+        "cacheSafety": {
+            "cacheable": true,
+            "variesBy": ["site", "locale", "theme"],
+            "sensitiveOutput": false,
+            "invalidationSources": [
+                {
+                    "model": "Capell\\Core\\Models\\Page",
+                    "events": [
+                        "created",
+                        "updated",
+                        "deleted",
+                        "restored",
+                        "forceDeleted"
+                    ]
+                },
+                {
+                    "model": "Capell\\Core\\Models\\Media",
+                    "events": [
+                        "created",
+                        "updated",
+                        "deleted",
+                        "restored",
+                        "forceDeleted"
+                    ]
+                },
+                {
+                    "model": "Capell\\Core\\Models\\Theme",
+                    "events": ["updated"]
+                }
+            ],
+            "queueInvalidation": false
+        }
+    },
+    "healthChecks": [
+        {
+            "key": "widget-slideshow.package-health",
+            "label": "Slideshow widget package health",
+            "class": "Capell\\WidgetSlideshow\\Health\\WidgetSlideshowHealthCheck",
+            "severity": "critical",
+            "surface": "frontend"
+        }
+    ],
+    "commercial": {
+        "proposedLicense": "free",
+        "requestedCertification": "first-party",
+        "supportPolicy": "capell-first-party",
+        "privateDocsRequested": false
+    },
+    "marketplace": {
+        "summary": "Accessible, responsive image slides with privacy-safe local media.",
+        "screenshots": [
+            {
+                "path": "docs/assets/marketplace/extension-card.jpg",
+                "alt": "Slideshow widget preview",
+                "caption": "Slideshow widget"
+            }
+        ],
+        "categories": ["foundation", "frontend", "media"]
+    }
+}
