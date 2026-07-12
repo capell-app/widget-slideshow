@@ -29,6 +29,8 @@ Status details:
 
 Screenshot contract: `docs/screenshots.json`.
 
+![Slideshow Widget extension card](docs/screenshots/extension-card.svg)
+
 - Slideshow Widget extension card (marketplace, required).
 - Slideshow fields in Layout Builder (admin, optional).
 - Slideshow public output (frontend, optional).
