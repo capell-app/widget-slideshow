@@ -36,7 +36,8 @@
     "contributes": [
         {
             "type": "content-widget",
-            "class": "Capell\\WidgetSlideshow\\WidgetSlideshowContribution"
+            "class": "Capell\\WidgetSlideshow\\WidgetSlideshowContribution",
+            "key": "capell-app.widget-slideshow"
         }
     ],
     "database": {
