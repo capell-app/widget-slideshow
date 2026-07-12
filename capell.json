@@ -4,8 +4,8 @@
     "slug": "widget-slideshow",
     "displayName": "Slideshow Widget",
     "kind": "package",
-    "capellApiVersion": "^4.0",
-    "version": "1.x-dev",
+    "capellApiVersion": "^0.0",
+    "version": "0.0.x-dev",
     "description": "Accessible responsive image slides with local media, captions, calls to action, and motion controls.",
     "product": {
         "group": "Capell Foundation",
