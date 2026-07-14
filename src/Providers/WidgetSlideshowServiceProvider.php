@@ -8,6 +8,9 @@ use Capell\Core\Enums\PackageTypeEnum;
 use Capell\Core\Enums\PresentationLoadingStrategy;
 use Capell\Core\Facades\CapellCore;
 use Capell\Core\Support\Packages\AbstractPackageServiceProvider;
+use Capell\Frontend\Data\Assets\FrontendResourceData;
+use Capell\Frontend\Data\Assets\FrontendResourceGroupData;
+use Capell\Frontend\Data\Assets\PublicResourceSourceData;
 use Capell\Frontend\Support\Assets\FrontendResourceRegistry;
 use Capell\LayoutBuilder\Data\WidgetExtensions\WidgetExtensionCapabilitiesData;
 use Capell\LayoutBuilder\Data\WidgetExtensions\WidgetExtensionDefinitionData;
@@ -50,9 +53,25 @@ final class WidgetSlideshowServiceProvider extends AbstractPackageServiceProvide
             ),
         ));
 
-        resolve(FrontendResourceRegistry::class)->group('capell-app.widget-slideshow')
-            ->css('/vendor/capell-widget-slideshow/widget.css', loading: PresentationLoadingStrategy::Visible)
-            ->js('/vendor/capell-widget-slideshow/widget.js', loading: PresentationLoadingStrategy::Visible, defer: true);
+        resolve(FrontendResourceRegistry::class)->register(new FrontendResourceGroupData(
+            key: 'capell-app.widget-slideshow',
+            label: 'Slideshow widget',
+            package: self::$packageName,
+            resources: [
+                FrontendResourceData::style(
+                    handle: 'capell-app/widget-slideshow:widget-style',
+                    package: self::$packageName,
+                    source: new PublicResourceSourceData('/vendor/capell-widget-slideshow/widget.css'),
+                    loadingStrategy: PresentationLoadingStrategy::Visible,
+                ),
+                FrontendResourceData::classicScript(
+                    handle: 'capell-app/widget-slideshow:widget-script',
+                    package: self::$packageName,
+                    source: new PublicResourceSourceData('/vendor/capell-widget-slideshow/widget.js'),
+                    loadingStrategy: PresentationLoadingStrategy::Visible,
+                ),
+            ],
+        ));
     }
 
     protected function isPackageInstalled(): bool
