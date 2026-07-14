@@ -1,0 +1,35 @@
+{
+    "whatThisPluginAdds": {
+        "text": "Slideshow adds a Layout Builder widget for local responsive images with captions, optional calls to action, and visitor motion controls. It rejects remote media and unsafe URLs before rendering.",
+        "evidence": [
+            "src/Filament/SlideshowWidget.php",
+            "resources/views/widget.blade.php",
+            "tests/Feature/WidgetSlideshowTest.php"
+        ]
+    },
+    "surfaceOutcome": {
+        "text": "Editors assemble slides in Layout Builder, and visitors receive a public image sequence with captions and controls for advancing or pausing motion.",
+        "evidence": [
+            "capell.json",
+            "resources/views/widget.blade.php",
+            "tests/Feature/WidgetSlideshowTest.php"
+        ]
+    },
+    "whyItMatters": {
+        "developers": {
+            "text": "The typed extension registers its public assets and validates slide media and links while tests protect the authoring boundary.",
+            "evidence": [
+                "src/Providers/WidgetSlideshowServiceProvider.php",
+                "src/Filament/SlideshowWidget.php",
+                "tests/Feature/WidgetSlideshowTest.php"
+            ]
+        },
+        "teams": {
+            "text": "Teams can publish an image sequence with useful captions and visitor-controlled motion without commissioning a custom carousel.",
+            "evidence": [
+                "resources/views/widget.blade.php",
+                "tests/Feature/WidgetSlideshowTest.php"
+            ]
+        }
+    }
+}
