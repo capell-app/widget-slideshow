@@ -34,6 +34,11 @@
             "required": false,
             "notes": "Capture the ordered slide editor and a public slideshow with caption, call to action, controls, and position indicators visible. Capture the editor state before the page is published.",
             "useCase": "An editor can see the fields used to configure the Slideshow widget.",
+            "url": "/screenshot-fixtures/widgets/slideshow/editor",
+            "waitFor": "[data-widget-screenshot-fixture=\"editor\"]",
+            "colorSchemes": [
+                "light"
+            ],
             "screenshotPath": "packages/widget-slideshow/docs/screenshots/slideshow-layout-builder-editor.png"
         },
         {
@@ -46,6 +51,11 @@
             "required": false,
             "notes": "Capture the ordered slide editor and a public slideshow with caption, call to action, controls, and position indicators visible. Verify the rendered HTML contains no authoring controls, field paths, model identifiers, or signed admin URLs.",
             "useCase": "A visitor browses an image story with accessible controls and a complete fallback.",
+            "url": "/screenshot-fixtures/widgets/slideshow/public",
+            "waitFor": "[data-widget-screenshot-fixture=\"public\"]",
+            "colorSchemes": [
+                "light"
+            ],
             "screenshotPath": "packages/widget-slideshow/docs/screenshots/slideshow-public-output.png"
         }
     ]

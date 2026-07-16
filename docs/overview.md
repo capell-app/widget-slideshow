@@ -8,16 +8,18 @@ Slideshow gives editors an accessible carousel for local images, captions, and c
 
 ## Do I need to do anything?
 
-Add the widget to a page in Layout Builder, complete its fields, and preview the public page before publishing.
+Add **Slideshow** in Layout Builder and enter its required accessible label. Add one to 20 ordered slides; each needs a local image and meaningful alternative text. Captions are optional. A call to action appears only when both its label and URL are supplied; URLs must be a site-relative path or an `http`/`https` URL. Choose whether to show controls and whether slides should advance automatically, then preview the public page before publishing.
 
 ## Where it shows up
 
-In Layout Builder, as a Slideshow widget for ordered local media, captions, links, and playback behaviour. The public no-JavaScript output remains a complete slide list.
+Editors configure ordered local media, captions, calls to action, controls, and playback behaviour in Layout Builder. The public carousel initially shows the first slide. The server-rendered output still contains every slide, so the content remains available without JavaScript.
 
 ## Good to know
 
 - This free beta extension belongs to Capell Foundation and requires Layout Builder.
-- Slides use local media, expose usable controls, respect reduced motion, and retain every slide without JavaScript.
+- Controls are on by default; automatic advancement is off by default. When enabled, it advances every five seconds.
+- Any visitor interaction, keyboard focus, or reduced-motion preference stops automatic advancement. Visitors can pause or resume it when controls are shown.
+- Slides use local media, and remote image URLs or unsafe CTA schemes are rejected.
 
 ## Screenshot status
 
