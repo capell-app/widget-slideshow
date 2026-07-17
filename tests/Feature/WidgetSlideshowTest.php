@@ -49,6 +49,30 @@ it('renders escaped typed slide content without authoring state', function (): v
         ->not->toContain('capell-app/widget-slideshow');
 });
 
+it('renders localized control labels rather than hardcoded english or raw translation keys', function (): void {
+    $renderData = SlideshowRenderData::from([
+        'label' => 'Featured work',
+        'slides' => [
+            ['image' => 'slides/one.jpg', 'alt' => 'First slide'],
+            ['image' => 'slides/two.jpg', 'alt' => 'Second slide'],
+        ],
+        'showControls' => true,
+        'autoAdvance' => true,
+    ]);
+
+    $html = view('capell-widget-slideshow::widget', compact('renderData'))->render();
+
+    // Resolved translations, not the raw `capell-widget-slideshow::widget.*` keys.
+    expect($html)
+        ->not->toContain('capell-widget-slideshow::widget.')
+        ->toContain('aria-label="Previous slide"')
+        ->toContain('aria-label="Next slide"')
+        ->toContain('aria-label="Pause slideshow"')
+        ->toContain('aria-label="1 of 2"')
+        ->toContain('data-label-resume="Resume"')
+        ->toContain('data-label-resume-slideshow="Resume slideshow"');
+});
+
 it('rejects remote slide media and unsafe call to action schemes', function (): void {
     expect(fn () => SlideshowInputData::validateAndCreate([
         'label' => 'Unsafe',

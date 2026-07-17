@@ -36,9 +36,7 @@
             "useCase": "An editor can see the fields used to configure the Slideshow widget.",
             "url": "/screenshot-fixtures/widgets/slideshow/editor",
             "waitFor": "[data-widget-screenshot-fixture=\"editor\"]",
-            "colorSchemes": [
-                "light"
-            ],
+            "colorSchemes": ["light"],
             "screenshotPath": "packages/widget-slideshow/docs/screenshots/slideshow-layout-builder-editor.png"
         },
         {
@@ -53,9 +51,7 @@
             "useCase": "A visitor browses an image story with accessible controls and a complete fallback.",
             "url": "/screenshot-fixtures/widgets/slideshow/public",
             "waitFor": "[data-widget-screenshot-fixture=\"public\"]",
-            "colorSchemes": [
-                "light"
-            ],
+            "colorSchemes": ["light"],
             "screenshotPath": "packages/widget-slideshow/docs/screenshots/slideshow-public-output.png"
         }
     ]

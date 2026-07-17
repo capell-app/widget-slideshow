@@ -39,11 +39,17 @@ const initialiseSlideshow = (root) => {
         'click',
         (event) => {
             paused = !paused
-            event.currentTarget.setAttribute('aria-pressed', String(paused))
-            event.currentTarget.textContent = paused ? 'Resume' : 'Pause'
-            event.currentTarget.setAttribute(
+            const toggle = event.currentTarget
+            toggle.setAttribute('aria-pressed', String(paused))
+            toggle.textContent = paused
+                ? (toggle.dataset.labelResume ?? 'Resume')
+                : (toggle.dataset.labelPause ?? 'Pause')
+            toggle.setAttribute(
                 'aria-label',
-                paused ? 'Resume slideshow' : 'Pause slideshow',
+                paused
+                    ? (toggle.dataset.labelResumeSlideshow ??
+                          'Resume slideshow')
+                    : (toggle.dataset.labelPauseSlideshow ?? 'Pause slideshow'),
             )
             start()
         },

@@ -11,7 +11,7 @@
             <article
                 class="capell-slideshow__slide"
                 aria-roledescription="slide"
-                aria-label="{{ $loop->iteration }} of {{ $loop->count }}"
+                aria-label="{{ __('capell-widget-slideshow::widget.slide_position', ['position' => $loop->iteration, 'total' => $loop->count]) }}"
                 @if (! $loop->first) hidden @endif
             >
                 <img
@@ -40,22 +40,26 @@
             <button
                 type="button"
                 data-slideshow-previous
-                aria-label="Previous slide"
+                aria-label="{{ __('capell-widget-slideshow::widget.previous_slide') }}"
             >
                 ‹
             </button>
             <button
                 type="button"
                 data-slideshow-toggle
-                aria-label="Pause slideshow"
+                aria-label="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
                 aria-pressed="false"
+                data-label-pause="{{ __('capell-widget-slideshow::widget.pause') }}"
+                data-label-resume="{{ __('capell-widget-slideshow::widget.resume') }}"
+                data-label-pause-slideshow="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
+                data-label-resume-slideshow="{{ __('capell-widget-slideshow::widget.resume_slideshow') }}"
             >
-                Pause
+                {{ __('capell-widget-slideshow::widget.pause') }}
             </button>
             <button
                 type="button"
                 data-slideshow-next
-                aria-label="Next slide"
+                aria-label="{{ __('capell-widget-slideshow::widget.next_slide') }}"
             >
                 ›
             </button>
