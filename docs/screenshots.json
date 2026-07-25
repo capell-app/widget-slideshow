@@ -13,6 +13,7 @@
     "entries": [
         {
             "id": "widget-slideshow-extension-card",
+            "colorSchemes": ["light"],
             "title": "Slideshow Widget extension card.",
             "package": "widget-slideshow",
             "surface": "marketplace",
@@ -41,18 +42,18 @@
         },
         {
             "id": "slideshow-public-output",
-            "title": "Slideshow public output.",
+            "title": "Illustrative slideshow public output preview.",
             "package": "widget-slideshow",
             "surface": "frontend",
-            "targetType": "artifact",
-            "target": "Seeded public page fixture",
-            "required": false,
-            "notes": "Capture the ordered slide editor and a public slideshow with caption, call to action, controls, and position indicators visible. Verify the rendered HTML contains no authoring controls, field paths, model identifiers, or signed admin URLs.",
+            "targetType": "frontend-url",
+            "target": "/screenshot-fixtures/catalogue/widget-slideshow/slideshow-public-output",
+            "required": true,
+            "notes": "Illustrative deterministic catalogue fixture, not a live package UI capture. Capture the ordered slide editor and a public slideshow with caption, call to action, controls, and position indicators visible. Verify the rendered HTML contains no authoring controls, field paths, model identifiers, or signed admin URLs.",
             "useCase": "A visitor browses an image story with accessible controls and a complete fallback.",
-            "url": "/screenshot-fixtures/widgets/slideshow/public",
-            "waitFor": "[data-widget-screenshot-fixture=\"public\"]",
-            "colorSchemes": ["light"],
-            "screenshotPath": "packages/widget-slideshow/docs/screenshots/slideshow-public-output.png"
+            "url": "/screenshot-fixtures/catalogue/widget-slideshow/slideshow-public-output",
+            "colorSchemes": ["light", "dark"],
+            "screenshotPath": "packages/widget-slideshow/docs/screenshots/slideshow-public-output.png",
+            "fixtureKind": "illustrative-catalogue"
         }
     ]
 }
