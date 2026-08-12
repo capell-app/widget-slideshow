@@ -33,13 +33,15 @@ Evidence: [`src/Providers/WidgetSlideshowServiceProvider.php`](src/Providers/Wid
 
 Screenshot contract: `docs/screenshots.json`.
 
+Capture status: the Marketplace card is committed artwork; the required public-output capture is a deterministic fixture target and remains pending until the screenshot runner records an authentic installed-package result. Do not treat the existing illustrative image as release evidence.
+
 ![Slideshow Widget extension card](docs/screenshots/extension-card.svg)
 
 ![Slideshow fields in Layout Builder](docs/screenshots/slideshow-layout-builder-editor.png)
 
 - Slideshow Widget extension card (marketplace, required).
 - Slideshow fields in Layout Builder (admin, optional).
-- Slideshow public output (frontend, optional).
+- Slideshow public output (frontend, required capture; pending runner receipt).
 
 ## Technical Shape
 
