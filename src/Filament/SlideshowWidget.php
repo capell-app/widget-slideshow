@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Capell\WidgetSlideshow\Filament;
 
 use Capell\Admin\Contracts\Widgets\FilamentWidget;
+use Capell\LayoutBuilder\Filament\Components\Forms\WidgetFileUpload;
 use Filament\Forms\Components\Builder\Block;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -25,7 +25,7 @@ final class SlideshowWidget implements FilamentWidget
             ->schema([
                 TextInput::make('label')->label(__('capell-widget-slideshow::widget.accessible_label'))->required()->maxLength(100),
                 Repeater::make('slides')->label(__('capell-widget-slideshow::widget.slides'))->minItems(1)->maxItems(20)->schema([
-                    FileUpload::make('image')->label(__('capell-widget-slideshow::widget.image'))->image()->required(),
+                    WidgetFileUpload::make('image')->label(__('capell-widget-slideshow::widget.image'))->image()->required(),
                     TextInput::make('alt')->label(__('capell-widget-slideshow::widget.alt'))->required()->maxLength(180),
                     TextInput::make('caption')->label(__('capell-widget-slideshow::widget.caption'))->maxLength(300),
                     TextInput::make('ctaLabel')->label(__('capell-widget-slideshow::widget.cta_label'))->maxLength(80),

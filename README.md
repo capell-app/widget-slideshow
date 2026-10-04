@@ -10,8 +10,6 @@ Slideshow adds a Layout Builder widget for local responsive images with captions
 
 Editors assemble slides in Layout Builder, and visitors receive a public image sequence with captions and controls for advancing or pausing motion.
 
-Evidence: [`src/Filament/SlideshowWidget.php`](src/Filament/SlideshowWidget.php), [`resources/views/widget.blade.php`](resources/views/widget.blade.php), [`tests/Feature/WidgetSlideshowTest.php`](tests/Feature/WidgetSlideshowTest.php), [`capell.json`](capell.json).
-
 Status details:
 
 - Status: Available
@@ -27,19 +25,17 @@ Status details:
 
 **For teams:** Teams can publish an image sequence with useful captions and visitor-controlled motion without commissioning a custom carousel.
 
-Evidence: [`src/Providers/WidgetSlideshowServiceProvider.php`](src/Providers/WidgetSlideshowServiceProvider.php), [`src/Filament/SlideshowWidget.php`](src/Filament/SlideshowWidget.php), [`tests/Feature/WidgetSlideshowTest.php`](tests/Feature/WidgetSlideshowTest.php), [`resources/views/widget.blade.php`](resources/views/widget.blade.php).
-
 ## Screens And Workflow
 
 Screenshot contract: `docs/screenshots.json`.
 
 ![Slideshow Widget extension card](docs/screenshots/extension-card.svg)
 
-![Illustrative slideshow public output preview](docs/screenshots/slideshow-public-output.png)
+![Slideshow public output](docs/screenshots/slideshow-public-output.png)
 
 - Slideshow Widget extension card (marketplace, required evidence).
 - Slideshow fields in Layout Builder (admin, supplementary evidence).
-- Illustrative slideshow public output preview (frontend, required evidence).
+- Slideshow public output (frontend, required evidence).
 - Slideshow fields in Layout Builder with admin sidebar menu open (admin, supplementary evidence).
 
 ## Technical Shape
@@ -109,7 +105,7 @@ This package has no schema impact. It extends Capell through `content-widget` co
 ## Quick Start
 
 1. Install the package: `composer require capell-app/widget-slideshow`.
-2. Open `/screenshot-fixtures/catalogue/widget-slideshow/slideshow-public-output` and confirm the public output renders without admin state.
+2. Open the package detail or install-intent surface and confirm the Slideshow Widget extension card is present.
 
 ## Next Steps
 
@@ -122,6 +118,5 @@ This package has no schema impact. It extends Capell through `content-widget` co
 - [Capell documentation design system](../../docs/DESIGN_SYSTEM.md)
 - [Capell and package ERD notes](../../docs/erd/capell-and-package-erds.md)
 - Related packages: [Layout Builder](../layout-builder/README.md).
-- Focused tests: `vendor/bin/pest packages/widget-slideshow/tests --configuration=phpunit.xml`.
 
 <!-- prettier-ignore-end -->

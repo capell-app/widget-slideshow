@@ -61,10 +61,10 @@ const initialiseSlideshow = (root) => {
     start()
 }
 document
-    .querySelectorAll('[data-capell-slideshow]')
+    .querySelectorAll('[data-capell-widget-slideshow]')
     .forEach(initialiseSlideshow)
 document.addEventListener('capell:content-ready', (event) =>
     event.target
-        ?.querySelectorAll?.('[data-capell-slideshow]')
+        ?.querySelectorAll?.('[data-capell-widget-slideshow]')
         .forEach(initialiseSlideshow),
 )

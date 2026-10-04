@@ -3,7 +3,7 @@
     class="capell-slideshow"
     aria-roledescription="carousel"
     aria-label="{{ $renderData->label }}"
-    data-capell-slideshow
+    data-capell-widget-slideshow
     data-auto-advance="{{ $renderData->autoAdvance ? 'true' : 'false' }}"
 >
     <div class="capell-slideshow__track">

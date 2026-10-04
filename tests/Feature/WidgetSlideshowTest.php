@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use Capell\Frontend\Actions\AssertPublicHtmlContainsNoAuthoringSurfaceAction;
 use Capell\Frontend\Support\Assets\FrontendResourceRegistry;
+use Capell\Frontend\Support\Security\PublicHtmlSafetyInspector;
 use Capell\LayoutBuilder\Support\WidgetExtensions\WidgetExtensionRegistry;
 use Capell\WidgetSlideshow\Data\SlideshowInputData;
 use Capell\WidgetSlideshow\Data\SlideshowRenderData;
@@ -10,6 +12,7 @@ use Capell\WidgetSlideshow\Health\WidgetSlideshowHealthCheck;
 use Capell\WidgetSlideshow\Providers\WidgetSlideshowServiceProvider;
 use Illuminate\Validation\ValidationException;
 use Spatie\LaravelData\DataCollection;
+use Symfony\Component\HttpFoundation\Response;
 
 beforeEach(function (): void {
     $this->app->register(WidgetSlideshowServiceProvider::class);
@@ -41,7 +44,20 @@ it('renders escaped typed slide content without authoring state', function (): v
 
     expect($renderData->slides)->toBeInstanceOf(DataCollection::class);
 
-    $html = view('capell-widget-slideshow::widget', compact('renderData'))->render();
+    $html = view('capell-widget-slideshow::widget', ['renderData' => $renderData])->render();
+
+    expect($html)->toContain('data-capell-widget-slideshow')
+        ->not->toContain('data-capell-slideshow');
+
+    AssertPublicHtmlContainsNoAuthoringSurfaceAction::run(new Response(
+        '<!doctype html><html><body>' . $html . '</body></html>',
+        Response::HTTP_OK,
+        ['Content-Type' => 'text/html'],
+    ));
+
+    expect(resolve(PublicHtmlSafetyInspector::class)->containsAuthoringSurface(
+        '<section data-capell-slideshow>Widget</section>',
+    ))->toBeTrue();
 
     expect($html)->toContain('&lt;script&gt;alert(1)&lt;/script&gt;')
         ->not->toContain('<script>alert(1)</script>')
@@ -60,7 +76,7 @@ it('renders localized control labels rather than hardcoded english or raw transl
         'autoAdvance' => true,
     ]);
 
-    $html = view('capell-widget-slideshow::widget', compact('renderData'))->render();
+    $html = view('capell-widget-slideshow::widget', ['renderData' => $renderData])->render();
 
     // Resolved translations, not the raw `capell-widget-slideshow::widget.*` keys.
     expect($html)
@@ -74,12 +90,12 @@ it('renders localized control labels rather than hardcoded english or raw transl
 });
 
 it('rejects remote slide media and unsafe call to action schemes', function (): void {
-    expect(fn () => SlideshowInputData::validateAndCreate([
+    expect(fn (): SlideshowInputData => SlideshowInputData::validateAndCreate([
         'label' => 'Unsafe',
         'slides' => [['image' => 'https://remote.test/image.jpg', 'alt' => 'Remote']],
     ]))->toThrow(ValidationException::class);
 
-    expect(fn () => SlideshowInputData::validateAndCreate([
+    expect(fn (): SlideshowInputData => SlideshowInputData::validateAndCreate([
         'label' => 'Unsafe',
         'slides' => [['image' => 'slides/local.jpg', 'alt' => 'Local', 'ctaUrl' => 'javascript:alert(1)']],
     ]))->toThrow(ValidationException::class);
