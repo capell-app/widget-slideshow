@@ -19,6 +19,7 @@ use Capell\LayoutBuilder\Support\WidgetExtensions\WidgetExtensionRegistrar;
 use Capell\WidgetSlideshow\Data\SlideshowInputData;
 use Capell\WidgetSlideshow\Data\SlideshowRenderData;
 use Capell\WidgetSlideshow\Filament\SlideshowWidget;
+use Override;
 use Spatie\LaravelPackageTools\Package;
 
 final class WidgetSlideshowServiceProvider extends AbstractPackageServiceProvider
@@ -29,12 +30,14 @@ final class WidgetSlideshowServiceProvider extends AbstractPackageServiceProvide
 
     public static PackageTypeEnum $type = PackageTypeEnum::Package;
 
+    #[Override]
     public function configurePackage(Package $package): void
     {
         $package->name(self::$name)->hasViews()->hasTranslations()->hasAssets();
     }
 
-    public function packageBooted(): void
+    #[Override]
+    protected function bootInstalledRuntime(): void
     {
         resolve(WidgetExtensionRegistrar::class)->register(new WidgetExtensionDefinitionData(
             key: 'capell-app.slideshow',
@@ -74,6 +77,7 @@ final class WidgetSlideshowServiceProvider extends AbstractPackageServiceProvide
         ));
     }
 
+    #[Override]
     protected function isPackageInstalled(): bool
     {
         return CapellCore::isPackageInstalled(self::$packageName);

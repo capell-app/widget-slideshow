@@ -1,6 +1,6 @@
 .capell-slideshow {
     position: relative;
-    color: var(--theme-text, #172033);
+    color: var(--theme-foreground, currentColor);
     background: var(--theme-surface, #fff);
     border-radius: var(--theme-radius, 1rem);
     overflow: hidden;

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Capell\Core\Facades\CapellCore;
 use Capell\Frontend\Actions\AssertPublicHtmlContainsNoAuthoringSurfaceAction;
 use Capell\Frontend\Support\Assets\FrontendResourceRegistry;
 use Capell\Frontend\Support\Security\PublicHtmlSafetyInspector;
@@ -15,6 +16,7 @@ use Spatie\LaravelData\DataCollection;
 use Symfony\Component\HttpFoundation\Response;
 
 beforeEach(function (): void {
+    CapellCore::forcePackageInstalled('capell-app/widget-slideshow');
     $this->app->register(WidgetSlideshowServiceProvider::class);
 });
 

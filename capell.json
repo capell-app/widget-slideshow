@@ -38,6 +38,11 @@
             "type": "content-widget",
             "key": "capell-app.slideshow",
             "class": "Capell\\WidgetSlideshow\\WidgetSlideshowContribution"
+        },
+        {
+            "type": "asset",
+            "key": "resource-group:capell-app.widget-slideshow",
+            "class": "Capell\\WidgetSlideshow\\WidgetSlideshowContribution"
         }
     ],
     "database": {
