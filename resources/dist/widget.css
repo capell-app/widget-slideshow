@@ -43,3 +43,15 @@
         display: none;
     }
 }
+
+.dark .capell-slideshow {
+    color: var(--foundation-body-fg, var(--theme-foreground, currentColor));
+    background: var(--foundation-card-bg, var(--theme-surface, #fff));
+}
+.dark .capell-slideshow__caption,
+.dark .capell-slideshow__controls button {
+    background: var(--foundation-card-bg, var(--theme-surface, #fff));
+}
+.dark .capell-slideshow__controls button {
+    border-color: var(--foundation-border, var(--theme-border, #cbd5e1));
+}
