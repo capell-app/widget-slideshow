@@ -35,7 +35,7 @@
             </article>
         @endforeach
     </div>
-    @if ($renderData->showControls && $renderData->slides->count() > 1)
+    @if ($renderData->slides->count() > 1)
         <div class="capell-slideshow__controls">
             <button
                 type="button"
@@ -44,18 +44,20 @@
             >
                 ‹
             </button>
-            <button
-                type="button"
-                data-slideshow-toggle
-                aria-label="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
-                aria-pressed="false"
-                data-label-pause="{{ __('capell-widget-slideshow::widget.pause') }}"
-                data-label-resume="{{ __('capell-widget-slideshow::widget.resume') }}"
-                data-label-pause-slideshow="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
-                data-label-resume-slideshow="{{ __('capell-widget-slideshow::widget.resume_slideshow') }}"
-            >
-                {{ __('capell-widget-slideshow::widget.pause') }}
-            </button>
+            @if ($renderData->autoAdvance)
+                <button
+                    type="button"
+                    data-slideshow-toggle
+                    aria-label="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
+                    aria-pressed="false"
+                    data-label-pause="{{ __('capell-widget-slideshow::widget.pause') }}"
+                    data-label-resume="{{ __('capell-widget-slideshow::widget.resume') }}"
+                    data-label-pause-slideshow="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
+                    data-label-resume-slideshow="{{ __('capell-widget-slideshow::widget.resume_slideshow') }}"
+                >
+                    {{ __('capell-widget-slideshow::widget.pause') }}
+                </button>
+            @endif
             <button
                 type="button"
                 data-slideshow-next

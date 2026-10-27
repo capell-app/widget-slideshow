@@ -11,6 +11,7 @@ use Capell\WidgetSlideshow\Data\SlideshowInputData;
 use Capell\WidgetSlideshow\Data\SlideshowRenderData;
 use Capell\WidgetSlideshow\Health\WidgetSlideshowHealthCheck;
 use Capell\WidgetSlideshow\Providers\WidgetSlideshowServiceProvider;
+use Dom\HTMLDocument;
 use Illuminate\Validation\ValidationException;
 use Spatie\LaravelData\DataCollection;
 use Symfony\Component\HttpFoundation\Response;
@@ -102,3 +103,13 @@ it('rejects remote slide media and unsafe call to action schemes', function (): 
         'slides' => [['image' => 'slides/local.jpg', 'alt' => 'Local', 'ctaUrl' => 'javascript:alert(1)']],
     ]))->toThrow(ValidationException::class);
 });
+
+it('always provides manual navigation for multiple slides for every stored playback setting', function (bool $controls, bool $auto): void {
+    $data = SlideshowRenderData::from(['label' => 'Slides', 'slides' => [['image' => 'one.jpg', 'alt' => 'One'], ['image' => 'two.jpg', 'alt' => 'Two', 'ctaLabel' => 'Visit', 'ctaUrl' => '/visit']], 'showControls' => $controls, 'autoAdvance' => $auto]);
+    $html = view('capell-widget-slideshow::widget', ['renderData' => $data])->render();
+    $document = HTMLDocument::createFromString($html, LIBXML_NOERROR);
+    expect($document->querySelectorAll('button[data-slideshow-next]'))->toHaveCount(1)
+        ->and($document->querySelectorAll('button[data-slideshow-previous]'))->toHaveCount(1)
+        ->and($document->querySelector('a[href="/visit"]'))->not->toBeNull()
+        ->and($document->querySelectorAll('button[data-slideshow-toggle]'))->toHaveCount($auto ? 1 : 0);
+})->with([[false, false], [false, true], [true, false], [true, true]]);

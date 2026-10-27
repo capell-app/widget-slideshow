@@ -25,6 +25,8 @@ final class SlideshowInputData extends Data
         return [
             'label' => ['required', 'string', 'max:100'],
             'slides' => ['required', 'array', 'min:1', 'max:20'],
+            'slides.*.ctaLabel' => ['required_with:slides.*.ctaUrl', 'nullable', 'string', 'max:80'],
+            'slides.*.ctaUrl' => ['required_with:slides.*.ctaLabel', 'nullable', 'string', 'max:2048', 'regex:/^(?:\/(?!\/)|https?:\/\/)/i'],
             'showControls' => ['boolean'],
             'autoAdvance' => ['boolean'],
         ];

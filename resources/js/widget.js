@@ -21,6 +21,21 @@ const initialiseSlideshow = (root) => {
         if (!paused && root.dataset.autoAdvance === 'true')
             timer = window.setInterval(() => show(index + 1), 5000)
     }
+    const toggle = root.querySelector('[data-slideshow-toggle]')
+    const updateToggle = () => {
+        if (!toggle) return
+        toggle.setAttribute('aria-pressed', String(paused))
+        toggle.textContent = paused
+            ? (toggle.dataset.labelResume ?? 'Resume')
+            : (toggle.dataset.labelPause ?? 'Pause')
+        toggle.setAttribute(
+            'aria-label',
+            paused
+                ? (toggle.dataset.labelResumeSlideshow ?? 'Resume slideshow')
+                : (toggle.dataset.labelPauseSlideshow ?? 'Pause slideshow'),
+        )
+    }
+    updateToggle()
     root.querySelector('[data-slideshow-previous]')?.addEventListener(
         'click',
         () => {
@@ -35,25 +50,11 @@ const initialiseSlideshow = (root) => {
             start()
         },
     )
-    root.querySelector('[data-slideshow-toggle]')?.addEventListener(
-        'click',
-        (event) => {
-            paused = !paused
-            const toggle = event.currentTarget
-            toggle.setAttribute('aria-pressed', String(paused))
-            toggle.textContent = paused
-                ? (toggle.dataset.labelResume ?? 'Resume')
-                : (toggle.dataset.labelPause ?? 'Pause')
-            toggle.setAttribute(
-                'aria-label',
-                paused
-                    ? (toggle.dataset.labelResumeSlideshow ??
-                          'Resume slideshow')
-                    : (toggle.dataset.labelPauseSlideshow ?? 'Pause slideshow'),
-            )
-            start()
-        },
-    )
+    toggle?.addEventListener('click', () => {
+        paused = !paused
+        updateToggle()
+        start()
+    })
     root.addEventListener('mouseenter', stop)
     root.addEventListener('mouseleave', start)
     root.addEventListener('focusin', stop)

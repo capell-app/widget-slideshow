@@ -31,5 +31,21 @@
                 "tests/Feature/WidgetSlideshowTest.php"
             ]
         }
-    }
+    },
+    "troubleshooting": [
+        {
+            "symptom": "The slideshow is refused",
+            "cause": "It has no slides or more than 20, or the label is over 100 characters",
+            "check": "Count the slides and check the label",
+            "fix": "Keep between 1 and 20 slides",
+            "evidence": ["src/Data/SlideshowInputData.php"]
+        },
+        {
+            "symptom": "A slide is refused",
+            "cause": "The image is a web address, the alt text is empty, or the call-to-action link is not a site path or full web address",
+            "check": "Check the slide's image, alt text and link",
+            "fix": "Pick the image from the media library, describe it, and use a path such as `/offers` for links",
+            "evidence": ["src/Data/SlideshowSlideData.php"]
+        }
+    ]
 }
