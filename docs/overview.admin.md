@@ -12,7 +12,7 @@ Editors configure ordered local media, captions, calls to action, controls, and 
 
 ## Good to know
 
-- This free beta extension belongs to Capell Foundation and requires Layout Builder.
+- This free beta extension belongs to Capell Essentials and requires Layout Builder.
 - Controls are on by default; automatic advancement is off by default. When enabled, it advances every five seconds.
 - Any visitor interaction, keyboard focus, or reduced-motion preference stops automatic advancement. Visitors can pause or resume automatic playback using the visible controls.
 - Slides use local media, and remote image URLs or unsafe CTA schemes are rejected.

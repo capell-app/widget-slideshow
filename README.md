@@ -2,79 +2,48 @@
 
 <!-- prettier-ignore-start -->
 
-## What This Plugin Adds
-
-Slideshow Widget is an **Available**, **No schema impact** Capell package in the **Capell Foundation** product group. It ships as `capell-app/widget-slideshow` and extends these surfaces: admin, frontend.
+## What It Does
 
 Slideshow adds a Layout Builder widget for local responsive images with captions, optional calls to action, and visitor motion controls. It rejects remote media and unsafe URLs before rendering.
 
+- **Price and availability:** Check current availability and price on the [Capell Marketplace listing](https://capell.app/extensions/widget-slideshow).
+- **Licence:** Check the licence terms on the [Capell Marketplace listing](https://capell.app/extensions/widget-slideshow).
+- **Requires:** `PHP ^8.4`, `capell-app/admin ^1.0`, `capell-app/core ^1.0.66`, `capell-app/frontend ^1.0.2`, `capell-app/layout-builder ^1.0.44`, `spatie/laravel-package-tools ^1.0`.
+- **Install:** `composer require capell-app/widget-slideshow`.
+
 Editors assemble slides in Layout Builder, and visitors receive a public image sequence with captions and controls for advancing or pausing motion.
 
-Status details:
-
-- Status: Available
-- Tier: free
-- Bundle: foundation
-- Composer package: `capell-app/widget-slideshow`
-- Namespace: `Capell\WidgetSlideshow`
-- Theme key: not applicable
-
-## Why It Matters
+## Who It Is For
 
 **For developers:** The typed extension registers its public assets and validates slide media and links while tests protect the authoring boundary.
 
 **For teams:** Teams can publish an image sequence with useful captions and visitor-controlled motion without commissioning a custom carousel.
 
-## Screens And Workflow
+## Quick Start
 
-Screenshot contract: `docs/screenshots.json`.
+1. Install the package: `composer require capell-app/widget-slideshow`.
+2. Open a page, click **Layout builder**, **Add widgets**, then choose **Slideshow**.
+
+## Configure
+
+This extension works without configuration. There is nothing to set after install.
+
+## Limits And Pitfalls
+
+- Install the required Capell packages at the versions in `composer.json`: `capell-app/admin ^1.0`, `capell-app/core ^1.0.66`, `capell-app/frontend ^1.0.2`, `capell-app/layout-builder ^1.0.44`.
+- Keep public Blade and cached HTML free of authoring markers, model IDs, permissions, signed editor URLs, and lazy database queries.
+- Custom write integrations must preserve invalidation for `widget-slideshow` cache tags.
+
+## Screens And Workflow
 
 ![Slideshow public output](docs/screenshots/slideshow-public-output.png)
 
 ![Slideshow fields in Layout Builder](docs/screenshots/slideshow-layout-builder-editor.png)
 
-- Slideshow Widget extension card (marketplace, supplementary documentation fixture).
-- Slideshow fields in Layout Builder (admin, supplementary evidence).
-- Slideshow public output (frontend, required evidence).
-- Slideshow fields in Layout Builder with admin sidebar menu open (admin, supplementary evidence).
-
-## Technical Shape
-
-### Service providers
-
-- `Capell\WidgetSlideshow\Providers\WidgetSlideshowServiceProvider`
-
-### Filament classes
-
-- `SlideshowWidget`
-
-### Data objects
-
-- `SlideshowInputData`
-- `SlideshowRenderData`
-- `SlideshowSlideData`
-
-### Manifest contributions
-
-- `asset: Capell\WidgetSlideshow\WidgetSlideshowContribution`
-- `content-widget: Capell\WidgetSlideshow\WidgetSlideshowContribution`
-
-### Health checks
-
-- `Capell\WidgetSlideshow\Health\WidgetSlideshowHealthCheck`
-
-### Blade views
-
-- `packages/widget-slideshow/resources/views/widget.blade.php`
-
-### Cache tags
-
-- `widget-slideshow`
-
-
-## Data Model
-
-This package has no schema impact. It extends Capell through `asset` contributions and `content-widget` contributions instead of declaring package-owned tables.
+- Slideshow Widget extension card (marketplace).
+- Slideshow fields in Layout Builder (admin).
+- Slideshow public output (frontend).
+- Slideshow fields in Layout Builder with admin sidebar menu open (admin).
 
 ## Install Impact
 
@@ -90,12 +59,6 @@ This package has no schema impact. It extends Capell through `asset` contributio
 - Cache tags: `widget-slideshow`.
 - Commands: none declared.
 
-## Common Pitfalls
-
-- Keep required Capell packages on compatible v4 releases: `capell-app/admin`, `capell-app/core`, `capell-app/frontend`, `capell-app/layout-builder`.
-- Keep public Blade and cached HTML free of authoring markers, model IDs, permissions, signed editor URLs, and lazy database queries.
-- Custom write integrations must preserve invalidation for `widget-slideshow` cache tags.
-
 ## Troubleshooting
 
 | Symptom | Likely cause | Check | Fix |
@@ -104,11 +67,6 @@ This package has no schema impact. It extends Capell through `asset` contributio
 | Public output leaks unexpected state | Render data, cache variation, or authoring boundary has regressed | Check public Blade, cache tags, and public-output safety tests | Move data loading out of Blade and rerun the package public-output tests |
 | The slideshow is refused | It has no slides or more than 20, or the label is over 100 characters | Count the slides and check the label | Keep between 1 and 20 slides |
 | A slide is refused | The image is a web address, the alt text is empty, or the call-to-action link is not a site path or full web address | Check the slide's image, alt text and link | Pick the image from the media library, describe it, and use a path such as `/offers` for links |
-
-## Quick Start
-
-1. Install the package: `composer require capell-app/widget-slideshow`.
-2. Open a page, click **Layout builder**, **Add widgets**, then choose **Slideshow**.
 
 ## Upgrading
 
@@ -119,7 +77,7 @@ No manual steps between minor versions.
 - [Package docs](docs/README.md)
 - [Overview](docs/overview.md)
 - [Troubleshooting](#troubleshooting)
-- [Screenshot contract](docs/screenshots.json)
+- [Developer reference](docs/reference.md)
 - [Marketplace assets](docs/assets/marketplace/)
 - [Capell content language plan](../../docs/CONTENT_LANGUAGE_PLAN.md)
 - [Capell documentation design system](../../docs/DESIGN_SYSTEM.md)

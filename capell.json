@@ -8,7 +8,7 @@
     "version": "1.0.0",
     "description": "Accessible responsive image slides with local media, captions, calls to action, and motion controls.",
     "product": {
-        "group": "Capell Foundation",
+        "group": "Capell Essentials",
         "tier": "free",
         "bundle": "foundation"
     },
@@ -147,7 +147,34 @@
     },
     "marketplace": {
         "summary": "Accessible, responsive image slides with privacy-safe local media.",
+        "description": "Show an accessible carousel of images with captions and optional calls to action, with explicit controls and respect for reduced-motion settings. Requires Layout Builder. Limits: one to twenty slides, every image uploaded to the Capell media library with alternative text, and every slide stays in the page HTML so content remains readable without JavaScript.",
+        "problem": "Editors presenting several images need a way for visitors to move through them on one page.",
+        "outcome": "A page has an image sequence with visitor controls for advancing or pausing motion.",
+        "faq": [
+            {
+                "question": "Can visitors pause the slideshow?",
+                "answer": "Yes. Visitors have controls for advancing slides or pausing motion."
+            },
+            {
+                "question": "Which images can a slide use?",
+                "answer": "Slides use local images; remote media is rejected."
+            },
+            {
+                "question": "How many slides can editors add?",
+                "answer": "A slideshow must contain between 1 and 20 slides."
+            }
+        ],
         "screenshots": [
+            {
+                "path": "docs/assets/marketplace/listing-slideshow-public-output.png",
+                "alt": "Slideshow public output",
+                "caption": "Slideshow public output"
+            },
+            {
+                "path": "docs/assets/marketplace/listing-slideshow-layout-builder-editor.png",
+                "alt": "Slideshow fields in Layout Builder",
+                "caption": "Slideshow fields in Layout Builder"
+            },
             {
                 "path": "docs/assets/marketplace/extension-card.jpg",
                 "alt": "Slideshow widget preview",
