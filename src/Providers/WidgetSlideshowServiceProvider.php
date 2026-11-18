@@ -16,6 +16,7 @@ use Capell\LayoutBuilder\Data\WidgetExtensions\WidgetExtensionCapabilitiesData;
 use Capell\LayoutBuilder\Data\WidgetExtensions\WidgetExtensionDefinitionData;
 use Capell\LayoutBuilder\Enums\WidgetPresentationCapability;
 use Capell\LayoutBuilder\Support\WidgetExtensions\WidgetExtensionRegistrar;
+use Capell\WidgetSlideshow\Actions\ResolveSlideshowPayloadsAction;
 use Capell\WidgetSlideshow\Data\SlideshowInputData;
 use Capell\WidgetSlideshow\Data\SlideshowRenderData;
 use Capell\WidgetSlideshow\Filament\SlideshowWidget;
@@ -46,6 +47,7 @@ final class WidgetSlideshowServiceProvider extends AbstractPackageServiceProvide
             filamentWidget: SlideshowWidget::class,
             inputData: SlideshowInputData::class,
             renderData: SlideshowRenderData::class,
+            batchPayloadResolver: ResolveSlideshowPayloadsAction::class,
             fallbackView: 'capell-widget-slideshow::widget',
             components: ['blade' => 'capell::widgets.capell-app.slideshow'],
             resourceGroups: ['capell-app.widget-slideshow'],

@@ -6,7 +6,10 @@
     data-capell-widget-slideshow
     data-auto-advance="{{ $renderData->autoAdvance ? 'true' : 'false' }}"
 >
-    <div class="capell-slideshow__track">
+    <div
+        class="capell-slideshow__track"
+        aria-live="{{ $renderData->autoAdvance ? 'off' : 'polite' }}"
+    >
         @foreach ($renderData->slides as $slide)
             <article
                 class="capell-slideshow__slide"
@@ -17,7 +20,10 @@
                 <img
                     src="{{ asset('storage/' . ltrim($slide->image, '/')) }}"
                     alt="{{ $slide->alt }}"
-                    loading="lazy"
+                    @if ($slide->srcset) srcset="{{ $slide->srcset }}" sizes="100vw" @endif
+                    @if ($slide->width && $slide->height) width="{{ $slide->width }}" height="{{ $slide->height }}" @endif
+                    decoding="async"
+                    @if ($loop->first) loading="eager" fetchpriority="high" @else loading="lazy" @endif
                 />
                 @if ($slide->caption || ($slide->ctaLabel && $slide->ctaUrl))
                     <div class="capell-slideshow__caption">
@@ -49,7 +55,6 @@
                     type="button"
                     data-slideshow-toggle
                     aria-label="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"
-                    aria-pressed="false"
                     data-label-pause="{{ __('capell-widget-slideshow::widget.pause') }}"
                     data-label-resume="{{ __('capell-widget-slideshow::widget.resume') }}"
                     data-label-pause-slideshow="{{ __('capell-widget-slideshow::widget.pause_slideshow') }}"

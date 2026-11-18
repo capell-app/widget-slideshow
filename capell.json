@@ -6,7 +6,7 @@
     "kind": "package",
     "capellApiVersion": "^1.0",
     "version": "1.0.0",
-    "description": "Accessible responsive image slides with local media, captions, calls to action, and motion controls.",
+    "description": "Slideshow block for Capell pages with up to twenty captioned photos, optional links and opt-in autoplay.",
     "product": {
         "group": "Capell Essentials",
         "tier": "free",
@@ -59,7 +59,7 @@
     },
     "settings": [],
     "permissions": [],
-    "capabilities": ["frontend.public-static"],
+    "capabilities": ["frontend-surface"],
     "security": {
         "riskTier": "low",
         "publicSurface": {
@@ -146,41 +146,63 @@
         "privateDocsRequested": false
     },
     "marketplace": {
-        "summary": "Accessible, responsive image slides with privacy-safe local media.",
-        "description": "Show an accessible carousel of images with captions and optional calls to action, with explicit controls and respect for reduced-motion settings. Requires Layout Builder. Limits: one to twenty slides, every image uploaded to the Capell media library with alternative text, and every slide stays in the page HTML so content remains readable without JavaScript.",
-        "problem": "Editors presenting several images need a way for visitors to move through them on one page.",
-        "outcome": "A page has an image sequence with visitor controls for advancing or pausing motion.",
+        "summary": "Give a job, an event or a product its own slideshow in one spot on the page, with captions and links, for visitors to step through.",
+        "description": "Add a Slideshow block to a page in Layout Builder and fill it with one to twenty photos you upload to the block. Each slide needs a description of the image and can carry a caption and a link. Autoplay is optional, advances every five seconds and has a Pause button. The block takes its name from a label that screen readers read out. Without JavaScript, visitors see only the first slide.",
+        "problem": "I have a dozen photos of one job, and stacked down the page they push everything else out of sight.",
+        "outcome": "A job's photos share one spot on the page, and visitors move through them at their own pace.",
         "faq": [
             {
                 "question": "Can visitors pause the slideshow?",
-                "answer": "Yes. Visitors have controls for advancing slides or pausing motion."
+                "answer": "Yes, when you have ticked Advance automatically. A Pause button then sits between Previous and Next, and the slides also hold still while a pointer or keyboard focus is on them. Devices that ask for reduced motion begin with it paused and a Resume button."
             },
             {
-                "question": "Which images can a slide use?",
-                "answer": "Slides use local images; remote media is rejected."
+                "question": "Does it move on by itself?",
+                "answer": "Only if you tick Advance automatically, and then it moves on every five seconds."
             },
             {
-                "question": "How many slides can editors add?",
-                "answer": "A slideshow must contain between 1 and 20 slides."
+                "question": "Which images can I use?",
+                "answer": "Ones you have uploaded to your own site. Images from other websites are rejected, and each slide needs a short description."
+            },
+            {
+                "question": "How many slides can one slideshow hold?",
+                "answer": "Up to twenty. On the last slide, Next takes a visitor back to the first."
+            },
+            {
+                "question": "Can a slide link somewhere?",
+                "answer": "Yes. A slide can have a link, but its label and address both have to be filled in."
             }
         ],
         "screenshots": [
             {
                 "path": "docs/assets/marketplace/listing-slideshow-public-output.png",
-                "alt": "Slideshow public output",
-                "caption": "Slideshow public output"
+                "alt": "Wide photo of a glass-walled corridor with the caption Room to think and make together and Previous, Pause and Next buttons",
+                "caption": "Visitors step through the photos, or pause one that moves on by itself."
             },
             {
                 "path": "docs/assets/marketplace/listing-slideshow-layout-builder-editor.png",
-                "alt": "Slideshow fields in Layout Builder",
-                "caption": "Slideshow fields in Layout Builder"
+                "alt": "Page editor with a Slideshow block open, showing the accessible label, a slide image, alternative text and a caption",
+                "caption": "Each slide takes an image, a short description and an optional caption."
             },
             {
                 "path": "docs/assets/marketplace/extension-card.jpg",
-                "alt": "Slideshow widget preview",
-                "caption": "Slideshow widget"
+                "alt": "Marketplace card for the Slideshow widget with a corridor photo and an editor screen and the steps Install, Use and Evolve",
+                "caption": "Card used for the widget's Marketplace listing."
             }
         ],
         "categories": ["foundation", "frontend", "media"]
+    },
+    "contributionTraceability": {
+        "contributions": [
+            {
+                "type": "asset",
+                "key": "resource-group:capell-app.widget-slideshow",
+                "providerBucket": "runtime"
+            },
+            {
+                "type": "content-widget",
+                "key": "capell-app.slideshow",
+                "providerBucket": "runtime"
+            }
+        ]
     }
 }

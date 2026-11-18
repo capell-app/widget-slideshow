@@ -10,12 +10,11 @@ use Spatie\LaravelData\DataCollection;
 
 final class SlideshowRenderData extends Data
 {
-    /** @param DataCollection<int, SlideshowSlideData> $slides */
+    /** @param DataCollection<int, SlideshowRenderSlideData> $slides */
     public function __construct(
         public string $label,
-        #[DataCollectionOf(SlideshowSlideData::class)]
+        #[DataCollectionOf(SlideshowRenderSlideData::class)]
         public DataCollection $slides,
-        public bool $showControls = true,
         public bool $autoAdvance = false,
     ) {}
 }

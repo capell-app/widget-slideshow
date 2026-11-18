@@ -6,7 +6,7 @@ Developer reference for `capell-app/widget-slideshow`. Start with the [README](.
 
 ## Package Details
 
-Slideshow Widget is an **Available**, **No schema impact** Capell package in the **Capell Essentials** product group. It ships as `capell-app/widget-slideshow` and extends these surfaces: admin, frontend.
+Slideshow Widget is an **Available** Capell package in the **Capell Essentials** product group. It ships as `capell-app/widget-slideshow` and extends these surfaces: admin, frontend.
 
 - Status: Available
 - Tier: free
@@ -25,10 +25,15 @@ Slideshow Widget is an **Available**, **No schema impact** Capell package in the
 
 - `SlideshowWidget`
 
+### Actions
+
+- `ResolveSlideshowPayloadsAction`
+
 ### Data objects
 
 - `SlideshowInputData`
 - `SlideshowRenderData`
+- `SlideshowRenderSlideData`
 - `SlideshowSlideData`
 
 ### Manifest contributions

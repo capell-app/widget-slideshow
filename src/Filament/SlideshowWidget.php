@@ -42,8 +42,7 @@ final class SlideshowWidget implements FilamentWidget
                             'regex' => __('capell-widget-slideshow::widget.cta_url_invalid'),
                         ]),
                 ]),
-                Toggle::make('showControls')->label(__('capell-widget-slideshow::widget.show_controls'))->helperText(__('capell-widget-slideshow::widget.controls_helper'))->default(true),
-                Toggle::make('autoAdvance')->label(__('capell-widget-slideshow::widget.auto_advance'))->default(false),
+                Toggle::make('autoAdvance')->label(__('capell-widget-slideshow::widget.auto_advance'))->helperText(__('capell-widget-slideshow::widget.auto_advance_helper'))->default(false),
             ]);
     }
 }

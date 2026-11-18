@@ -1,0 +1,70 @@
+[
+    {
+        "claim": "Visitors step through the photos at their own pace.",
+        "evidence": [
+            "resources/js/widget.js",
+            "resources/views/widget.blade.php"
+        ]
+    },
+    {
+        "claim": "Each is shown wide, at a 16 by 9 shape, with its caption underneath and Previous and Next buttons below that.",
+        "evidence": [
+            "src/Filament/SlideshowWidget.php",
+            "src/Data/SlideshowInputData.php",
+            "resources/css/widget.css",
+            "resources/views/widget.blade.php"
+        ]
+    },
+    {
+        "claim": "Up to twenty photos share the one spot, and Next on the last photo takes a visitor back to the first.",
+        "evidence": [
+            "src/Filament/SlideshowWidget.php",
+            "src/Data/SlideshowInputData.php",
+            "resources/js/widget.js",
+            "resources/views/widget.blade.php"
+        ]
+    },
+    {
+        "claim": "Editors add a Slideshow block from Layout Builder, the page builder.",
+        "evidence": [
+            "capell.json",
+            "resources/lang/en/widget.php",
+            "src/Filament/SlideshowWidget.php"
+        ]
+    },
+    {
+        "claim": "You name the slideshow, and screen readers read that name out.",
+        "evidence": [
+            "src/Filament/SlideshowWidget.php",
+            "resources/views/widget.blade.php"
+        ]
+    },
+    {
+        "claim": "For every slide you upload an image and describe it in a few words.",
+        "evidence": [
+            "src/Filament/SlideshowWidget.php",
+            "src/Data/SlideshowSlideData.php"
+        ]
+    },
+    {
+        "claim": "A caption is optional, and so is a link, whose label and address have to be filled in together.",
+        "evidence": [
+            "src/Filament/SlideshowWidget.php",
+            "src/Data/SlideshowInputData.php",
+            "src/Data/SlideshowSlideData.php"
+        ]
+    },
+    {
+        "claim": "Tick Advance automatically and the slides move on every five seconds, with a Pause button for visitors.",
+        "evidence": [
+            "resources/js/widget.js",
+            "src/Filament/SlideshowWidget.php",
+            "resources/lang/en/widget.php",
+            "resources/views/widget.blade.php"
+        ]
+    },
+    {
+        "claim": "If a visitor's device asks for reduced motion, the slideshow starts paused and they can press Resume.",
+        "evidence": ["resources/js/widget.js", "resources/lang/en/widget.php"]
+    }
+]

@@ -1,6 +1,6 @@
 {
     "name": "capell-app/widget-slideshow",
-    "description": "Accessible, theme-neutral slideshow widget for Capell.",
+    "description": "Slideshow block for Capell pages with up to twenty captioned photos, optional links and opt-in autoplay.",
     "type": "library",
     "license": "proprietary",
     "require": {

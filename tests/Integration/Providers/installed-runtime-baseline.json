@@ -4,10 +4,10 @@
     "scenarios": {
         "default": {
             "source": {
-                "ref": "HEAD",
-                "commit": "adac26b4ce1e9e1de545f68a1ff272ff73111696",
+                "ref": "92da4146f6",
+                "commit": "92da4146f6865853f68459b45621ebc812302b34",
                 "providers": {
-                    "Providers/WidgetSlideshowServiceProvider.php": "2f1c626cf315709221a5f8ab28fe58e4e1ea5116746b40b1236583d07a68bd46"
+                    "Providers/WidgetSlideshowServiceProvider.php": "28d2a2d5a2775c15b771ea1b210fe0257d292cb2ec9bd6e12a1b8a971b417db0"
                 },
                 "configure": null
             },
@@ -199,7 +199,7 @@
                             "capell-app.slideshow": [
                                 "Capell\\LayoutBuilder\\Data\\WidgetExtensions\\WidgetExtensionDefinitionData",
                                 {
-                                    "batchPayloadResolver": null,
+                                    "batchPayloadResolver": "Capell\\WidgetSlideshow\\Actions\\ResolveSlideshowPayloadsAction",
                                     "capabilities": [
                                         "Capell\\LayoutBuilder\\Data\\WidgetExtensions\\WidgetExtensionCapabilitiesData",
                                         {

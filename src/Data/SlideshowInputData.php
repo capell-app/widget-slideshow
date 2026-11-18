@@ -15,7 +15,6 @@ final class SlideshowInputData extends Data
         public string $label,
         #[DataCollectionOf(SlideshowSlideData::class)]
         public DataCollection $slides,
-        public bool $showControls = true,
         public bool $autoAdvance = false,
     ) {}
 
@@ -27,7 +26,6 @@ final class SlideshowInputData extends Data
             'slides' => ['required', 'array', 'min:1', 'max:20'],
             'slides.*.ctaLabel' => ['required_with:slides.*.ctaUrl', 'nullable', 'string', 'max:80'],
             'slides.*.ctaUrl' => ['required_with:slides.*.ctaLabel', 'nullable', 'string', 'max:2048', 'regex:/^(?:\/(?!\/)|https?:\/\/)/i'],
-            'showControls' => ['boolean'],
             'autoAdvance' => ['boolean'],
         ];
     }
