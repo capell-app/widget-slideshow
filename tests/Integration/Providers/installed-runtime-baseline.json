@@ -4,10 +4,10 @@
     "scenarios": {
         "default": {
             "source": {
-                "ref": "92da4146f6",
-                "commit": "92da4146f6865853f68459b45621ebc812302b34",
+                "ref": "HEAD",
+                "commit": "ebcd458e0a9ad46f7c93be498066a4c04dc6e896",
                 "providers": {
-                    "Providers/WidgetSlideshowServiceProvider.php": "28d2a2d5a2775c15b771ea1b210fe0257d292cb2ec9bd6e12a1b8a971b417db0"
+                    "Providers/WidgetSlideshowServiceProvider.php": "75af6adb9470525b6dd44d815c96bab73fc04adacca379fb581768ad62d2e1ee"
                 },
                 "configure": null
             },
@@ -73,7 +73,7 @@
                                     "package": "capell-app/widget-slideshow",
                                     "resources": [
                                         [
-                                            "Capell\\Frontend\\Data\\Assets\\FrontendResourceData",
+                                            "Capell\\Core\\Data\\Rendering\\Assets\\FrontendResourceData",
                                             {
                                                 "async": false,
                                                 "criticalCssEligible": false,
@@ -94,7 +94,7 @@
                                             }
                                         ],
                                         [
-                                            "Capell\\Frontend\\Data\\Assets\\FrontendResourceData",
+                                            "Capell\\Core\\Data\\Rendering\\Assets\\FrontendResourceData",
                                             {
                                                 "async": false,
                                                 "criticalCssEligible": false,
@@ -120,7 +120,7 @@
                         },
                         "resources": {
                             "capell-app/widget-slideshow:widget-script": [
-                                "Capell\\Frontend\\Data\\Assets\\FrontendResourceData",
+                                "Capell\\Core\\Data\\Rendering\\Assets\\FrontendResourceData",
                                 {
                                     "async": false,
                                     "criticalCssEligible": false,
@@ -141,7 +141,7 @@
                                 }
                             ],
                             "capell-app/widget-slideshow:widget-style": [
-                                "Capell\\Frontend\\Data\\Assets\\FrontendResourceData",
+                                "Capell\\Core\\Data\\Rendering\\Assets\\FrontendResourceData",
                                 {
                                     "async": false,
                                     "criticalCssEligible": false,

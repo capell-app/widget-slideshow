@@ -8,14 +8,14 @@ Editors add a Slideshow block from Layout Builder, the page builder. You name th
 
 Tick Advance automatically and the slides move on every five seconds, with a Pause button for visitors. If a visitor's device asks for reduced motion, the slideshow starts paused and they can press Resume.
 
-- **Price and availability:** Check current availability and price on the [Capell Marketplace listing](https://capell.app/extensions/widget-slideshow).
-- **Licence:** Check the licence terms on the [Capell Marketplace listing](https://capell.app/extensions/widget-slideshow).
-- **Requires:** `PHP ^8.4`, `capell-app/admin ^1.0`, `capell-app/core ^1.0.66`, `capell-app/frontend ^1.0.2`, `capell-app/layout-builder ^1.0.44`, `spatie/laravel-package-tools ^1.0`.
-- **Install:** `composer require capell-app/widget-slideshow`.
+- **Price and availability:** Check current availability and price on the [Capell Marketplace listing](https://capell.app/marketplace/extensions/widget-slideshow).
+- **Licence:** Check the licence terms on the [Capell Marketplace listing](https://capell.app/marketplace/extensions/widget-slideshow).
+- **Requires:** `PHP ^8.4`, `capell-app/admin ^1.0`, `capell-app/core ^1.0.79`, `capell-app/frontend ^1.0.79`, `capell-app/layout-builder ^1.0.44`, `spatie/laravel-package-tools ^1.0`.
+- **Install:** `composer require capell-app/widget-slideshow:@beta`.
 
 ## Quick Start
 
-1. Install the package: `composer require capell-app/widget-slideshow`.
+1. Install the package: `composer require capell-app/widget-slideshow:@beta`.
 2. Open a page, click **Layout builder**, **Add widgets**, then choose **Slideshow**.
 
 ## For Developers
@@ -28,7 +28,7 @@ This extension works without configuration. There is nothing to set after instal
 
 ## Limits And Pitfalls
 
-- Install the required Capell packages at the versions in `composer.json`: `capell-app/admin ^1.0`, `capell-app/core ^1.0.66`, `capell-app/frontend ^1.0.2`, `capell-app/layout-builder ^1.0.44`.
+- Install the required Capell packages at the versions in `composer.json`: `capell-app/admin ^1.0`, `capell-app/core ^1.0.79`, `capell-app/frontend ^1.0.79`, `capell-app/layout-builder ^1.0.44`.
 - Keep public Blade and cached HTML free of authoring markers, model IDs, permissions, signed editor URLs, and lazy database queries.
 - Custom write integrations must preserve invalidation for `widget-slideshow` cache tags.
 

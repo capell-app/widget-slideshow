@@ -27,10 +27,6 @@ Editors configure ordered local media, captions, calls to action, controls, and 
 - Any visitor interaction, keyboard focus, or reduced-motion preference stops automatic advancement. Visitors can pause or resume automatic playback using the visible controls.
 - Slides use local media, and remote image URLs or unsafe CTA schemes are rejected.
 
-## Screenshot status
-
-Capture the ordered slide editor and a public slideshow with caption, call to action, controls, and position indicators visible. The committed Marketplace card is interim beta artwork until these two fixture captures are recorded.
-
 ---
 
 For developers: see the [README](../README.md).
